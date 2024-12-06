@@ -31,13 +31,24 @@ class IncomeController extends Controller
      */
     public function store(Request $request)
     {
+        
+        $validated = $request->validate([
+            'receipt_type' => 'required|string|max:20',
+            'receipt_series' => 'nullable|string|max:',
+            'receipt_number' => 'required|string|max:10',
+            'date' => 'required|date_format:Y-m-d\TH:i',
+            'tax' => 'required|numeric',
+            'total' => 'required|numeric',
+            'state' => 'required|string|max:20',
+        ]);
+
         $income=new Income();
         $income->provider_id='1';
         $income->user_id='1';
         $income->receipt_type=$request->input('receipt_type');
         $income->receipt_series=$request->input('receipt_series');
         $income->receipt_number=$request->input('receipt_number');
-        $income->date=$request->input('date');
+        $income->date = \Carbon\Carbon::createFromFormat('Y-m-d\TH:i', $request->input('date')) ->format('Y-m-d H:i:s');
         $income->tax=$request->input('tax');
         $income->total=$request->input('total');
         $income->status=$request->input('state');

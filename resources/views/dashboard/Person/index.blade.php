@@ -10,6 +10,7 @@
     <table class="table table-success table-striped">
         <thead>
             <tr>
+                <th>#</th>
                 <th>Tipo</th>
                 <th>Nombre</th>
                 <th>Apellido</th>
@@ -18,6 +19,8 @@
                 <th>Dirreccion</th>
                 <th>Telefono</th>
                 <th>Email</th>
+                <th>Fecha de Creacion</th>
+                <th>Fecha de Actualizacion</th>
                 <th>Editar</th>
                 <th>Eliminar</th>
             </tr>

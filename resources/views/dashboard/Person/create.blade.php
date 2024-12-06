@@ -7,7 +7,7 @@
     <form action="{{ route('person.store') }}" method="post">
         @csrf
         <div class="form-group row">
-            <label for="code" class="col-sm-2 col-form-label">Tipo</label>
+            <label for="type" class="col-sm-2 col-form-label">Tipo</label>
             <div class="col-sm-10">
                 <select class="form-control" id="type" name="type" required>
                     <option value="">Selecciona un tipo</option>
@@ -35,15 +35,14 @@
             <div class="col-sm-10">
                 <select class="form-control" id="document_type" name="document_type" required>
                     <option value="">Selecciona un tipo de documento</option>
-                    <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
-                    <option value="Cédula de Extranjería">Cédula de Extranjería</option>
-                    <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                    <option value="Pasaporte">Pasaporte</option>
-                    <option value="NIT">NIT</option>
-                    <option value="Otro">Otro</option>
+                    <option value="CC">Cédula de Ciudadanía</option>
+                    <option value="TI">Tarjeta de Identidad</option>
+                    <option value="CE">Cédula de Extranjería</option>
+                    <option value="PP">Pasaporte</option>
                 </select>
             </div>  
         </div>
+        
         <div class="form-group row">
             <label for="document_number" class="col-sm-2 col-form-label">Número de Documento</label>
             <div class="col-sm-10">

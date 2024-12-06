@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['admin', 'user', 'guest'])->notNullable();
+            $table->enum('type', ['Cliente', 'Proveedor', 'Empleado', 'Otro'])->notNullable();
             $table->string('first_name',100)->notNullable();
             $table->string('last_name',100)->notNullable();
             $table->enum('document_type', ['CC', 'TI', 'CE', 'PP'])->nullable();

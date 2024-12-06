@@ -35,15 +35,16 @@ class PersonController extends Controller
     {
         // Validación de los datos del formulario
         $validated = $request->validate([
-            'type' => 'required|string',
+            'type' => 'required|in:Cliente,Proveedor,Empleado,Otro', // Validación estricta de los valores permitidos
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'document_type' => 'required|string',
+            'document_type' => 'required|in:CC,TI,CE,PP', // Asegúrate de que sea válido
             'document_number' => 'required|string',
-            'address' => 'required|string',  // Validación de 'address'
+            'address' => 'required|string',
             'phone' => 'required|string',
-            'email' => 'required|email',  // Validación de correo electrónico
+            'email' => 'required|email',
         ]);
+      
         
         $person= new Person();
         $person->type=$request->input('type');
@@ -55,7 +56,7 @@ class PersonController extends Controller
         $person->phone=$request->input('phone');
         $person->email=$request->input('email');
         $person->save();
-
+        
         return redirect()->route('person.index')->with('success', '¡Persona creada exitosamente!');
 
     }

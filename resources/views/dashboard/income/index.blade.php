@@ -36,6 +36,7 @@
                 <td>{{$income->date}}</td>
                 <td>{{$income->tax}}</td>
                 <td>{{$income->total}}</td>
+                <td>{{$income->state ? _('Cancelado') : _('Pendiente')}}</td>
                 <td>{{$income->status}}</td>
                 <td>
                     <a href="{{url('dashboard/income/'.$income->id.'/edit')}}" class="bi bi-pencil-square"></a></td>
