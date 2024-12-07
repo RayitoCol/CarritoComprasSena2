@@ -13,13 +13,19 @@ return new class extends Migration
     {
         Schema::create('income_details', function (Blueprint $table) {
             $table->id();
+            
+            // Relación con la tabla "incomes"
             $table->unsignedBigInteger('income_id');
-            $table->unsignedBigInteger('article_id');
-            $table->integer('quantity');
-            $table->decimal('price', 11, 2);
             $table->foreign('income_id')->references('id')->on('incomes')->onDelete('cascade');
+            
+            // Relación con la tabla "articles"
+            $table->unsignedBigInteger('article_id');
             $table->foreign('article_id')->references('id')->on('articles')->onDelete('cascade');
-            $table->timestamps();
+            
+            // Detalles adicionales
+            $table->integer('quantity'); // Cantidad de artículos
+            $table->decimal('price', 11, 2); // Precio unitario
+            $table->timestamps(); // Marca de tiempo para creación y actualización
         });
     }
 
@@ -28,9 +34,10 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('income_details');
+        Schema::dropIfExists('income_details'); // Elimina la tabla
     }
 };
+
 
 
            

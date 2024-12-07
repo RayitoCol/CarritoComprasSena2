@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+//importamos de spatie
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 
 class PermissionSeeder extends Seeder
 {
@@ -39,6 +42,9 @@ class PermissionSeeder extends Seeder
             'Editar persona',
             'Eliminar persona',
         ];
-        
+
+        foreach($permisos as $permiso){
+            Permission::create(['name'->$permiso]);
+        }
     }
 }
