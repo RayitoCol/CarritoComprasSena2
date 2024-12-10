@@ -9,11 +9,12 @@ class Income extends Model
 {
     use HasFactory;
     public function person(){
-        return $this->belongsTo(Person::class,'provider_id','id');
+        return $this->belongsTo(person::class,'provider_id','id');
     }
 
-    use HasFactory;
     public function user(){
-        return $this->belongsTo(User::class,'user_id','id');
+        return $this->belongsTo(user::class,'user_id','id');
     }
 }
+
+

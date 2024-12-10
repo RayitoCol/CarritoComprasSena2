@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RoleController;
 use App\Http\Controllers\IncomeDetailController;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\PersonController;
@@ -31,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('/dashboard/category',CategoryController::class);
     Route::resource('/dashboard/person',PersonController::class);
     Route::resource('/dashboard/income',IncomeController::class);
-    Route::resource('income-detail', IncomeDetailController::class);
+    Route::resource('/dashboard/income-detail', IncomeDetailController::class);
     Route::resource('/dashboard/role',RoleController::class);
     //Route::resource('/dashboard/article',Sale_detailController::class);
     //Route::resource('/dashboard/article',SaleController::class);
